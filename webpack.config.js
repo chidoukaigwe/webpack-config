@@ -13,7 +13,7 @@ module.exports = {
     module:{
         rules:[
             {
-                test:/\.scss$/i,
+                test:/\.(s[ac]|c)ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader, 
                     "css-loader", 
@@ -22,7 +22,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -34,6 +34,10 @@ module.exports = {
     plugins:[
         new MiniCssExtractPlugin()
     ],
+
+    resolve: {
+        extensions: [".js", ".jsx"]
+    },
 
     // devtool: false,
     devtool: "source-map",
